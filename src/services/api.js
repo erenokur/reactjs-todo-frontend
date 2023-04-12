@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { getToken } from "../utils/tokenStorage";
 const baseURL = process.env.REACT_APP_BASE_URL;
 
 const api = axios.create({
@@ -9,7 +9,7 @@ const api = axios.create({
 // Add interceptor to add JWT token to requests
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("jwtToken");
+    const token = getToken();
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }

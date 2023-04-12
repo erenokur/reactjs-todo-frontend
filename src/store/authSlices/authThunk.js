@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getToken, removeToken, setToken } from "../../utils/HelperFunctions";
+import { removeToken, setToken } from "../../utils/tokenStorage";
 import api from "../../services/api";
 import history from "../../utils/history";
 
@@ -7,7 +7,7 @@ export const fetchUserData = createAsyncThunk(
   "auth/fetchUserData",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get("/auth/getuserdata");
+      const response = await api.get("/auth/getUserData");
       return response.data;
     } catch (e) {
       removeToken();

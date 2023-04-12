@@ -1,27 +1,27 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import {
-  gettasks,
-  deactivatetask,
-  markdone,
-  markundone,
+  getTasks,
+  deActivateTask,
+  markDone,
+  markUnDone,
 } from "../../store/tasksSlices/tasksThunk";
 const TodoList = ({ _id, title, completed }) => {
   const dispatch = useDispatch();
   const CheckThenGet = () => async () => {
     console.log("given ID " + _id);
     if (completed) {
-      await dispatch(markundone({ _id }));
+      await dispatch(markUnDone({ _id }));
     } else {
-      await dispatch(markdone({ _id }));
+      await dispatch(markDone({ _id }));
     }
 
-    await dispatch(gettasks());
+    await dispatch(getTasks());
   };
 
   const DeleteThenGet = () => async () => {
-    await dispatch(deactivatetask({ _id }));
-    await dispatch(gettasks());
+    await dispatch(deActivateTask({ _id }));
+    await dispatch(getTasks());
   };
 
   return (

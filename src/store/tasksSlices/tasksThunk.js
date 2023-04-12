@@ -1,43 +1,41 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getToken } from "../../utils/HelperFunctions";
 import api from "../../services/api";
-import history from "../../utils/history";
 
-export const gettasks = createAsyncThunk("task/gettasks", async (payload) => {
+export const getTasks = createAsyncThunk("task/getTasks", async (payload) => {
   //const accessToken = getToken();
   try {
-    const response = await api.get("/task/gettasks");
+    const response = await api.get("/task/getTasks");
     return response.data;
   } catch (e) {
     return null;
   }
 });
 
-export const createtask = createAsyncThunk(
-  "task/createtask",
+export const createTask = createAsyncThunk(
+  "task/createTask",
   async (payload) => {
-    const response = await api.post("/task/createtask", payload);
+    const response = await api.post("/task/createTask", payload);
     return response.data;
   }
 );
 
-export const deactivatetask = createAsyncThunk(
-  "task/deactivatetask",
+export const deActivateTask = createAsyncThunk(
+  "task/deActivateTask",
   async (payload) => {
-    const response = await api.post("/task/deactivatetask", payload);
+    const response = await api.post("/task/deActivateTask", payload);
     return response.data;
   }
 );
 
-export const markdone = createAsyncThunk("task/markdone", async (payload) => {
-  const response = await api.post("/task/markdone", payload);
+export const markDone = createAsyncThunk("task/markDone", async (payload) => {
+  const response = await api.post("/task/markDone", payload);
   return response.data;
 });
 
-export const markundone = createAsyncThunk(
-  "task/markundone",
+export const markUnDone = createAsyncThunk(
+  "task/markUnDone",
   async (payload) => {
-    const response = await api.post("/task/markundone", payload);
+    const response = await api.post("/task/markUnDone", payload);
     return response.data;
   }
 );
