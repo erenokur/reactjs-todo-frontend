@@ -38,8 +38,8 @@ export const tasksSlices = createSlice({
       state.loading = true;
     },
     [createTask.fulfilled]: (state, action) => {
-      const { message } = action.payload;
-      state.createTaskMessage = message;
+      const { data } = action.payload;
+      state.taskList = data;
       state.loading = false;
     },
     [createTask.rejected]: (state, action) => {
@@ -51,6 +51,8 @@ export const tasksSlices = createSlice({
       state.loading = true;
     },
     [deActivateTask.fulfilled]: (state, action) => {
+      const { data } = action.payload;
+      state.taskList = data;
       state.loading = false;
     },
     [deActivateTask.rejected]: (state, action) => {
@@ -62,6 +64,8 @@ export const tasksSlices = createSlice({
       state.loading = true;
     },
     [markDone.fulfilled]: (state, action) => {
+      const { data } = action.payload;
+      state.taskList = data;
       state.loading = false;
     },
     [markDone.rejected]: (state, action) => {
@@ -73,6 +77,8 @@ export const tasksSlices = createSlice({
       state.loading = true;
     },
     [markUnDone.fulfilled]: (state, action) => {
+      const { data } = action.payload;
+      state.taskList = data;
       state.loading = false;
     },
     [markUnDone.rejected]: (state, action) => {

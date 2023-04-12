@@ -11,17 +11,14 @@ const TodoList = ({ _id, title, completed }) => {
   const CheckThenGet = () => async () => {
     console.log("given ID " + _id);
     if (completed) {
-      await dispatch(markUnDone({ _id }));
+      dispatch(markUnDone({ _id }));
     } else {
-      await dispatch(markDone({ _id }));
+      dispatch(markDone({ _id }));
     }
-
-    await dispatch(getTasks());
   };
 
   const DeleteThenGet = () => async () => {
-    await dispatch(deActivateTask({ _id }));
-    await dispatch(getTasks());
+    dispatch(deActivateTask({ _id }));
   };
 
   return (

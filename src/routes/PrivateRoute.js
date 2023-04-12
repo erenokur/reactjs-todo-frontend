@@ -5,7 +5,7 @@ import { getToken } from "../utils/tokenStorage";
 import { Route, Redirect } from "react-router-dom";
 
 const PrivateRoute = ({ children, ...rest }) => {
-  const { token, loading } = useSelector((state) => state.auth);
+  const { loading } = useSelector((state) => state.auth);
 
   if (loading) {
     return <Loading />;

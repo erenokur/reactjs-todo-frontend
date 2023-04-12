@@ -1,35 +1,30 @@
 import React from "react";
-import Login from '../pages/Login';
-import Register from '../pages/Register';
-import NoMatch from '../pages/404';
-import Home from '../pages/Home';
-import PrivateRoute from './PrivateRoute';
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import NoMatch from "../pages/404";
+import Home from "../pages/Home";
+import PrivateRoute from "./PrivateRoute";
 
-import {
-    Switch,
-    Route,
-} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 const Routes = () => (
-    <Switch>
+  <Switch>
+    <Route exact path={["/login", "/"]}>
+      <Login />
+    </Route>
 
-        <Route exact path={['/login', '/']}>
-            <Login />
-        </Route>
+    <Route exact path={["/register"]}>
+      <Register />
+    </Route>
 
-        <Route exact path={['/register']}>
-            <Register />
-        </Route>
+    <PrivateRoute exact path="/home">
+      <Home />
+    </PrivateRoute>
 
-
-        <PrivateRoute exact path="/home">
-            <Home />
-        </PrivateRoute>
-
-        <Route path="*">
-            <NoMatch />
-        </Route>
-    </Switch>
+    <Route path="*">
+      <NoMatch />
+    </Route>
+  </Switch>
 );
 
 export default Routes;

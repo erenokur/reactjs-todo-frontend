@@ -12,8 +12,7 @@ const TodoList = () => {
       setTitle("");
       return;
     }
-    await dispatch(createTask({ title }));
-    await dispatch(getTasks());
+    dispatch(createTask({ title }));
     setTitle("");
   };
 

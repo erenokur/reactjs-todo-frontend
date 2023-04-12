@@ -66,7 +66,7 @@ const Login = () => {
             Login
           </button>
           <button className="btn" onClick={GoToRegister}>
-            click to create acount
+            click to create account
           </button>
         </div>
       )}
