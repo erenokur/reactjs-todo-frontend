@@ -88,6 +88,6 @@ export const tasksSlices = createSlice({
   },
 });
 
-export const {} = tasksSlices.actions;
+export const tasks = tasksSlices.actions;
 
 export default tasksSlices.reducer;

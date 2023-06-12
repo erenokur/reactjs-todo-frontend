@@ -2,7 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../services/api";
 
 export const getTasks = createAsyncThunk("task/getTasks", async (payload) => {
-  //const accessToken = getToken();
   try {
     const response = await api.get("/task/getTasks");
     return response.data;
